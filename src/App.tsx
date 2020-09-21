@@ -1,11 +1,15 @@
 import React from "react";
 import "./App.css";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import MainPage from "./Pages/MainPage/MainPage";
 
 function App() {
   return (
-    <div className="App">
-      <h1> Welcome to Youtube</h1>
-    </div>
+    <Router>
+      <Switch>
+        <Route path="/" exact render={() => <MainPage />} />
+      </Switch>
+    </Router>
   );
 }
 
