@@ -3,7 +3,7 @@ import Navbar from "../../Components/Navbar/Navbar";
 import Sidebar from "../../Components/Sidebar/Sidebar";
 import "./MainPage.css";
 
-export default function MainPage() {
+const MainPage: React.FC = () => {
   return (
     <div className="MainPage">
       <div className="top">
@@ -15,4 +15,6 @@ export default function MainPage() {
       </div>
     </div>
   );
-}
+};
+
+export default MainPage;

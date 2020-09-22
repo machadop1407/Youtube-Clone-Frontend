@@ -1,5 +1,6 @@
 import React from "react";
 
-export default function Sidebar() {
+const Sidebar: React.FC = () => {
   return <div style={{ width: 250 }}>Sidebar</div>;
-}
+};
+export default Sidebar;
