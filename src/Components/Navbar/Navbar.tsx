@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Navbar.css";
 import YouTubeIcon from "@material-ui/icons/YouTube";
 import ReorderIcon from "@material-ui/icons/Reorder";
@@ -6,6 +6,8 @@ import SearchIcon from "@material-ui/icons/Search";
 import AddBoxIcon from "@material-ui/icons/AddBox";
 
 const Navbar: React.FC = () => {
+  const [loggedIn, setLoggedIn] = useState(false);
+
   return (
     <div className="navbarContainer">
       <div className="left">
@@ -26,7 +28,11 @@ const Navbar: React.FC = () => {
         <button id="createVideo">
           <AddBoxIcon id="icon" />
         </button>
-        <button id="profilePic"></button>
+        {loggedIn ? (
+          <button id="profilePic"></button>
+        ) : (
+          <button id="signInButton"> Sign In</button>
+        )}
       </div>
     </div>
   );

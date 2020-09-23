@@ -98,6 +98,19 @@
   border-radius: 50%;
 }
 
+.navbarContainer .right #signInButton {
+  width: 80px;
+  height: 40px;
+  border: none;
+  border: 2px solid blue;
+  border-radius: 10px;
+  background-color: transparent;
+  color: blue;
+}
+.navbarContainer .right #signInButton:hover {
+  cursor: pointer;
+}
+
 .navbarContainer .right #profilePic:hover {
   cursor: pointer;
 }
