@@ -1,18 +1,18 @@
 import React, { useState } from "react";
 import "./Navbar.css";
 import YouTubeIcon from "@material-ui/icons/YouTube";
-import ReorderIcon from "@material-ui/icons/Reorder";
+import MenuIcon from "@material-ui/icons/Menu";
 import SearchIcon from "@material-ui/icons/Search";
-import AddBoxIcon from "@material-ui/icons/AddBox";
+import VideoCallIcon from "@material-ui/icons/VideoCall";
 
 const Navbar: React.FC = () => {
-  const [loggedIn, setLoggedIn] = useState(false);
+  const [loggedIn, setLoggedIn] = useState<boolean>(false);
 
   return (
     <div className="navbarContainer">
       <div className="left">
         <button id="sidebarToggle">
-          <ReorderIcon id="icon" />
+          <MenuIcon id="icon" />
         </button>
 
         <YouTubeIcon id="icon" style={{ color: "red" }} />
@@ -26,12 +26,20 @@ const Navbar: React.FC = () => {
       </div>
       <div className="right">
         <button id="createVideo">
-          <AddBoxIcon id="icon" />
+          <VideoCallIcon id="icon" />
         </button>
         {loggedIn ? (
           <button id="profilePic"></button>
         ) : (
-          <button id="signInButton"> Sign In</button>
+          <button
+            id="signInButton"
+            onClick={() => {
+              window.location.pathname = "signin";
+            }}
+          >
+            {" "}
+            Sign In
+          </button>
         )}
       </div>
     </div>
