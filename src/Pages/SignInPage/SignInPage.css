@@ -13,6 +13,10 @@
   box-shadow: -5px 5px darkgray;
   width: 600px;
   height: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 .SignInPage .Container .top {
@@ -35,4 +39,20 @@
   height: 40px;
   font-size: 18px;
   padding-left: 10px;
+}
+
+#bttn {
+  width: 200px;
+  height: 60px;
+  border: none;
+  border-radius: 8px;
+  background-color: black;
+  color: white;
+  font-size: 21px;
+  font-weight: bold;
+  margin: 10px;
+}
+
+#bttn:hover {
+  cursor: pointer;
 }

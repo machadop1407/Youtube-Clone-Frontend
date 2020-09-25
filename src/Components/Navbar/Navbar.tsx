@@ -1,12 +1,21 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./Navbar.css";
 import YouTubeIcon from "@material-ui/icons/YouTube";
 import MenuIcon from "@material-ui/icons/Menu";
 import SearchIcon from "@material-ui/icons/Search";
 import VideoCallIcon from "@material-ui/icons/VideoCall";
+import { url } from "inspector";
 
 const Navbar: React.FC = () => {
   const [loggedIn, setLoggedIn] = useState<boolean>(false);
+  const [profilePicture, setProfilePicture] = useState<string>("");
+
+  useEffect(() => {
+    if (sessionStorage.getItem("loggedIn") === "true") {
+      setLoggedIn(true);
+      setProfilePicture(sessionStorage.getItem("imageUrl") as string);
+    }
+  }, [sessionStorage.getItem("loggedIn")]);
 
   return (
     <div className="navbarContainer">
@@ -29,7 +38,7 @@ const Navbar: React.FC = () => {
           <VideoCallIcon id="icon" />
         </button>
         {loggedIn ? (
-          <button id="profilePic"></button>
+          <img id="profilePic" src={profilePicture} />
         ) : (
           <button
             id="signInButton"
