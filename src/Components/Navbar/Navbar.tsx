@@ -4,7 +4,6 @@ import YouTubeIcon from "@material-ui/icons/YouTube";
 import MenuIcon from "@material-ui/icons/Menu";
 import SearchIcon from "@material-ui/icons/Search";
 import VideoCallIcon from "@material-ui/icons/VideoCall";
-import { url } from "inspector";
 
 const Navbar: React.FC = () => {
   const [loggedIn, setLoggedIn] = useState<boolean>(false);
