@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 
 import { SidebarData } from "./SidebarData";
 import "./Sidebar.css";
@@ -12,16 +12,10 @@ const Sidebar: React.FC = () => {
             <li
               key={key}
               className="row"
+              id={val.path === window.location.pathname ? "active" : ""}
               onClick={() => (window.location.pathname = val.path)}
             >
-              <div
-                id="iconContainer"
-                className={
-                  val.path === window.location.pathname ? "active" : ""
-                }
-              >
-                {val.icon}
-              </div>
+              <div id="iconContainer">{val.icon}</div>
 
               <div id="titleContainer">
                 <h3>{val.title}</h3>
@@ -30,6 +24,7 @@ const Sidebar: React.FC = () => {
           );
         })}
       </ul>
+      <hr />
     </div>
   );
 };

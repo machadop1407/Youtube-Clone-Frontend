@@ -18,11 +18,20 @@
   font-size: 30px;
 }
 
+.navbarContainer .left #homeBtn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.navbarContainer .left #homeBtn:hover {
+  cursor: pointer;
+}
+
 .navbarContainer .left #sidebarToggle {
   border: none;
   background-color: transparent;
   color: grey;
-
   width: 50px;
   height: 50px;
   border-radius: 45%;
@@ -61,6 +70,7 @@
   font-size: 15px;
   padding-left: 5px;
 }
+
 .navbarContainer .center #searchButton {
   width: 10%;
   height: 40px;
@@ -88,6 +98,10 @@
   background-color: transparent;
 }
 
+.navbarContainer .right #createVideo:hover {
+  cursor: pointer;
+}
+
 .navbarContainer .right #profilePic {
   color: grey;
   margin: 10px;
@@ -107,6 +121,7 @@
   background-color: transparent;
   color: blue;
 }
+
 .navbarContainer .right #signInButton:hover {
   cursor: pointer;
 }
@@ -114,6 +129,7 @@
 .navbarContainer .right #profilePic:hover {
   cursor: pointer;
 }
+
 .navbarContainer .right #profilePic:focus {
   outline: none;
 }

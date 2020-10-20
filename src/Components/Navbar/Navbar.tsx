@@ -1,13 +1,15 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import "./Navbar.css";
 import YouTubeIcon from "@material-ui/icons/YouTube";
 import MenuIcon from "@material-ui/icons/Menu";
 import SearchIcon from "@material-ui/icons/Search";
 import VideoCallIcon from "@material-ui/icons/VideoCall";
+import { ToggleSidebarContext } from "../../Helpers/Context";
 
 const Navbar: React.FC = () => {
   const [loggedIn, setLoggedIn] = useState<boolean>(false);
   const [profilePicture, setProfilePicture] = useState<string>("");
+  const { showSidebar, setShowSidebar } = useContext(ToggleSidebarContext);
 
   useEffect(() => {
     if (sessionStorage.getItem("loggedIn") === "true") {
@@ -19,12 +21,14 @@ const Navbar: React.FC = () => {
   return (
     <div className="navbarContainer">
       <div className="left">
-        <button id="sidebarToggle">
+        <button id="sidebarToggle" onClick={() => setShowSidebar(!showSidebar)}>
           <MenuIcon id="icon" />
         </button>
 
-        <YouTubeIcon id="icon" style={{ color: "red" }} />
-        <h1>YouTube</h1>
+        <div id="homeBtn" onClick={() => (window.location.pathname = "/")}>
+          <YouTubeIcon id="icon" style={{ color: "red" }} />
+          <h1>YouTube</h1>
+        </div>
       </div>
       <div className="center">
         <input id="searchBar" placeholder="Search" />
@@ -33,11 +37,18 @@ const Navbar: React.FC = () => {
         </button>
       </div>
       <div className="right">
-        <button id="createVideo">
+        <button
+          id="createVideo"
+          onClick={() => (window.location.pathname = "/upload")}
+        >
           <VideoCallIcon id="icon" />
         </button>
         {loggedIn ? (
-          <img id="profilePic" src={profilePicture} />
+          <img
+            id="profilePic"
+            src={profilePicture}
+            onClick={() => (window.location.pathname = "/account")}
+          />
         ) : (
           <button
             id="signInButton"

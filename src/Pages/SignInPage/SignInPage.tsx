@@ -3,10 +3,13 @@ import "./SignInPage.css";
 
 import { GoogleLogin } from "react-google-login";
 import Axios from "axios";
+import { useHistory } from "react-router-dom";
 
 const SignInPage: React.FC = () => {
   const [channelName, setChannelName] = useState<string>("");
   const [signInOption, setSignInOption] = useState<string>("");
+
+  let history = useHistory();
 
   const responseGoogle = (res: any) => {
     console.log(res);
@@ -16,7 +19,7 @@ const SignInPage: React.FC = () => {
     const googleId = res.profileObj.googleId;
     const imageUrl = res.profileObj.imageUrl;
 
-    Axios.post("http://localhost:3001/signin", {
+    Axios.post("http://localhost:3001/user", {
       name: name,
       email: email,
       googleId: googleId,
@@ -27,6 +30,7 @@ const SignInPage: React.FC = () => {
       sessionStorage.setItem("name", name);
       sessionStorage.setItem("imageUrl", imageUrl);
       sessionStorage.setItem("googleId", googleId);
+      history.push("/");
     });
   };
 
